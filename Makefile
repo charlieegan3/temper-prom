@@ -1,2 +1,2 @@
 all:
-	gcc -Wall -pedantic -Werror -o temper-prom temper-prom.c temper.c /usr/lib/x86_64-linux-gnu/libusb-1.0.so -lmicrohttpd
+	$(CC) -Wall -pedantic -Werror $(shell pkg-config --cflags libmicrohttpd libusb-1.0 ) -o temper-prom temper-prom.c temper.c $(shell pkg-config --libs libmicrohttpd libusb-1.0 )
